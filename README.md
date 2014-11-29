@@ -11,9 +11,7 @@ This application has two models with corresponding RESTful controllers & pages -
 
 ## Get it up and running  
 
-### If you would like to push the code to your own GitHub account  
-
-for future reference:  
+### If you would like to push the code to your own GitHub account
 
 + Fork the GitHub repo & clone to your machine  
 
