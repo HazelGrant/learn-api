@@ -9,6 +9,8 @@ ruby   -v: 2.0.0p481
 
 This application has two models with corresponding RESTful controllers & pages - Artist and Album. Artist has_many albums and Album belongs_to artist. An Artist has & must have a name. An Album has & must have both a title and an artist_id. Models and controllers are tested using ActiveSupport::TestCase and fixtures. The layouts are built using the twitter-bootstrap-rails gem.  
 
+We will be working on the branch build-api.  
+
 ## Get it up and running  
 
 ### If you would like to push the code to your own GitHub account
