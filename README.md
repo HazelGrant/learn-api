@@ -28,5 +28,5 @@ This application has two models with corresponding RESTful controllers & pages -
 ### If anything goes wrong  
 
 + Feel free to send me an email:
-	++wendybeth010 [at] gmail [dot] com  
+	+ wendybeth010 [at] gmail [dot] com  
 + Or submit an issue
