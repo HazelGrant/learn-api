@@ -1,0 +1,7 @@
+= simple_form_for @album, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :title
+  = error_span(@album[:title])
+  = f.input :artist_id
+  = error_span(@album[:artist_id])
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), albums_path, :class => 'btn btn-default'
