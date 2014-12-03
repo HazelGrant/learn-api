@@ -3,10 +3,21 @@ require 'test_helper'
 class AlbumTest < ActiveSupport::TestCase
   def setup
   	@album = albums(:valid)
+    # Setup an artist fixture
+    @artist = artists(:valid)
   end
 
   test "@album is valid" do 
+    # Need to save artist before you can save album
+    # Since album saves a foreign key that references an artist row
+    @artist.id=1
+    @artist.save
+    # Is fixture actually saving artist to db?
   	assert @album.save
+  end
+
+  test "@album is invalid with an invalid foreign key" do
+    assert_not @album.save
   end
 
   test "responds to title" do 
@@ -22,8 +33,9 @@ class AlbumTest < ActiveSupport::TestCase
   	assert_not @album.save
   end
 
-  test "must have artist" do 
+  test "must have artist id" do 
   	@album.artist_id = ''
   	assert_not @album.save
   end
+
 end
