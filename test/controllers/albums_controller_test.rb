@@ -8,6 +8,9 @@ class AlbumsControllerTest < ActionController::TestCase
 	end
 
   test "should get index" do 
+    # Saving artist id as 1
+    @artist.id=1
+    @artist.save
   	get :index
   	assert_response :success
   	assert_template :index
@@ -26,11 +29,12 @@ class AlbumsControllerTest < ActionController::TestCase
   end
 
   test "should get create" do 
+    @artist.id=1
+    @artist.save
   	assert_difference('Album.count', 1) do 
   		post :create, { album: @params }
   	end
-
-  	assert_response :redirect
+    assert_response :redirect
   end
 
   test "should get edit" do 
@@ -40,6 +44,8 @@ class AlbumsControllerTest < ActionController::TestCase
   end
 
   test "should get update" do 
+    @artist.id=1
+    @artist.save
   	put :update, id: @album, album: { title: 'Far' }
   	assert_response :redirect
   	assert_equal 'Far', Album.find(@album.id).title
