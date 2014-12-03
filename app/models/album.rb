@@ -5,7 +5,11 @@ class Album < ActiveRecord::Base
 
   protected
   def artist_id_exists
-    return false if Artist.find_by_id(self.artist_id).nil?
+    if Artist.find_by_id(self.artist_id).nil? 
+      return false 
+    else
+      return true 
+    end
   end
 
 end
