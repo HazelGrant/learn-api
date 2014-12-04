@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   resources :artists
   resources :albums
+
+  namespace :api do 
+  	resources :albums, :artists
+  end
 end
