@@ -9,7 +9,7 @@
 %p
   %strong= model_class.human_attribute_name(:artist_id) + ':'
   %br
-  = @album.artist_id
+  = Artist.find(@album.artist_id).name
 
 
 = link_to t('.back', :default => t("helpers.links.back")), albums_path, :class => 'btn btn-default'
