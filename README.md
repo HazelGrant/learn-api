@@ -21,7 +21,7 @@ We will be working on the branch 'build-api'.
 
 + Clone the repo  
 
-### Make sure nothing is broken 
+### Make sure nothing is broken
 
 + cd into learn-api
 + bundle install
@@ -30,5 +30,5 @@ We will be working on the branch 'build-api'.
 ### If anything goes wrong  
 
 + Feel free to send me an email:
-	+ wendybeth010 [at] gmail [dot] com  
+	+ <wendybeth010@gmail.com> 
 + Or submit an issue
