@@ -4,6 +4,47 @@ module Api
     before_action :set_resource, only: [:destroy, :show, :update]
     respond_to :json
 
+    def created
+      set_resource(resource_class.new(resource_params))
+
+      if get_resource.save
+        render :show, status: :created
+      else
+        render json: get_resource.errors, status: :unprocessable_entity
+      end
+    end
+
+    def destroy
+      get_resource.destroy
+      head :no_content
+    end
+
+    def index
+      plural_resource_name = "@#{resource_name.pluralize}"
+
+      # Calls upon query plus pagination reqs
+      resources = resource_class.where(query_params)
+                                .page(page_params[:page])
+                                .per(page_params[:page_size])
+
+      # Makes an instance variable of the two methods above then returns values
+      # desired by query
+      instance_variable_set(plural_resource_name, resources)
+      respond_with instance_variable_get(plural_resource_name)
+    end
+
+    def show
+      respond_with get_resource
+    end
+
+    def update
+      if get_resource.update(resource_params)
+        render :show
+      else
+        render json: get_resource.errors, status: :umprocessable_entity
+      end
+    end
+
     private
       def get_resource
         # Ruby method: gets value of instance variable if one is set; otherwise,
@@ -17,12 +58,12 @@ module Api
         {}
       end
 
-      # params for pagination
+      # Pparams for pagination. Will be inherited by all of our API controllers
       def page_params
         params.permit(:page, :page_size)
       end
 
-      # the naming convention of the class probably equates to
+      # The naming convention of the class probably equates to
       # resource_name.classify.constantize so that is being set to an instance
       # variable for our use
       def resource_class
