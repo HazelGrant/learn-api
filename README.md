@@ -11,24 +11,7 @@ This application has two models with corresponding RESTful controllers & pages -
 
 We will be working on the branch 'build-api'.  
 
-## Get it up and running  
-
-### If you would like to push the code to your own GitHub account
-
-+ Fork the GitHub repo & clone to your machine  
-
-### Else, you can just:  
-
-+ Clone the repo  
-
-### Make sure nothing is broken 
-
-+ cd into learn-api
-+ bundle install
-+ run tests with bundle exec rake
-
-### If anything goes wrong  
-
-+ Feel free to send me an email:
-	+ wendybeth010 [at] gmail [dot] com  
-+ Or submit an issue
+## Troubleshooting Lessons Learned
+- restart your server after you mess with your routes
+- make sure you install kaminari gem; jbuilder came with with the original fork
+(and I think with Rails)
