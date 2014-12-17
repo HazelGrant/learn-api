@@ -17,6 +17,7 @@ class AlbumTest < ActiveSupport::TestCase
   end
 
   test "@album is invalid with an invalid foreign key" do
+    @album.artist_id = 10
     assert_not @album.save
   end
 
